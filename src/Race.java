@@ -11,7 +11,9 @@ public class Race {
         ListofRace.put(name, counter);
     }
 
+
     static int findType(String name){
+
         return ListofRace.get(name);
     }
 

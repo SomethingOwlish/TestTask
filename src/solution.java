@@ -29,7 +29,7 @@ while(!position.isFinal()){
     }
 
 
-private static int makeStep(ArrayList<String> history, Point.point[][] field, int raceType){
+    static int makeStep(ArrayList<String> history, Point.point[][] field, int raceType){
     int line = position.getLine();
     int row = position.getRow();
     if (findBetter(line, row, field, raceType)){
@@ -47,13 +47,13 @@ private static int makeStep(ArrayList<String> history, Point.point[][] field, in
 }
 
 
-private static int checkCoast(int l, int r, Point.point[][] field, int raceType){
+static int checkCoast(int l, int r, Point.point[][] field, int raceType){
         //узнаем сколько будет стоить шагнуть в выбранную клетку
     Point.typeofPoint place = field[l][r].type;
         return place.getCost(raceType);
 }
 
-private static int validCheck(int l, int r, String typeSwitcher, Point.point[][] field, int raceType) {
+static int validCheck(int l, int r, String typeSwitcher, Point.point[][] field, int raceType) {
         //-1 так как система считает с нуля
     boolean isValidLine = l < fL-1;
     boolean isValidRow = r < fR-1;
@@ -73,7 +73,7 @@ private static int validCheck(int l, int r, String typeSwitcher, Point.point[][]
     return Value;
 }
 
-private static boolean findBetter(int l, int r, Point.point[][] field, int raceType){
+static boolean findBetter(int l, int r, Point.point[][] field, int raceType){
         int lineUp = validCheck(l, r, "Line", field, raceType);
         int rowUp = validCheck(l, r, "Row", field, raceType);
         if (lineUp < rowUp) {
@@ -111,7 +111,7 @@ static class position {
         row+=b;
     }
 
-    static  private boolean isFinal() {
+    static  boolean isFinal() {
         if (line < fL-1 || row < fR-1) { //-1 оптому что система считает с нуля
             return false;
         } else {

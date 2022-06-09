@@ -36,8 +36,8 @@ public class Point {
        static void initialize(String fieldMarkers,  point[][] field) {
             char[] ch=fieldMarkers.toCharArray();
             int n = 0; //итератор, нужен дальше
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < solution.fL; i++) {
+                for (int j = 0; j < solution.fR; j++) {
                     field[i][j] = new point(i,j,ch[n]);
                     n++;
                 }
